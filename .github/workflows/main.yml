@@ -26,6 +26,6 @@ jobs:
           go build .
       - uses: actions/upload-artifact@v3
         with:
-          name: zip-all.zip
-          path: ./
+          name: bootdev-linux-x86_64.zip
+          path: ./bootdev
           if-no-files-found: ignore
