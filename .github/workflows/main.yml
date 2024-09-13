@@ -20,3 +20,12 @@ jobs:
           VERSION="$(cat version.txt)"
           git tag "$VERSION"
           git push origin tag "$VERSION"
+      - uses: actions/setup-go@v5.0.2
+      - run: |
+          go mod tidy
+          go build .
+      - uses: actions/upload-artifact@v3
+        with:
+          name: zip-all.zip
+          path: ./
+          if-no-files-found: ignore
